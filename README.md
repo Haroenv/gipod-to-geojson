@@ -4,7 +4,8 @@
 # Usage
 
 ```
-node gipod.js
+npm install
+node traffic.js
 ```
 
 This will output the real GeoJSON in STDOUT and let you do whatever you want with it.
