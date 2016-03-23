@@ -14,7 +14,8 @@ const options = {
   '--query': (queryArg)=>{
     query = '?'+queryArg;
   },
-  '-h':
+  '-h': ()=>{
+    console.log(
 `
 usage: node traffic.js [flag] [value]
 flags:
@@ -29,47 +30,60 @@ flags:
 
 example: node traffic.js --type workassignment --query city=gent&enddate=2016-03-20
 `
+      );
+  }
+
+}
+
+// exit if no arguments
+if (args.length === 0) {
+  options['-h']();
+  process.exit(1);
 }
 
 for (let i in args) {
   if (args[i] in options) {
-    // if (args[parseInt(i)+1] === 'undefined') {
-    //   options['-h'];
-    // } else {
+    if (args[i] === '-h') {
+      options['-h']();
+      process.exit(0);
+    } else {
       let arg = args[i];
       options[arg](args[parseInt(i)+1]);
-    // }
+    }
   }
 }
 
-const url = address + type + query;
+let get = () => {
+  const url = address + type + query;
 
-let output = {
-  'type': 'FeatureCollection',
-  'features': ''
-};
+  let output = {
+    'type': 'FeatureCollection',
+    'features': ''
+  };
 
-got(url)
-  .then(response => {
-    let parsed = response.body.replace(/"coordinate"/g,'"geometry"');
-    parsed = JSON.parse(parsed);
-    let features = [];
-    for (let i in parsed) {
-      if (parsed.hasOwnProperty(i)) {
-        let feat = {};
-        feat.geometry = parsed[i].geometry;
-        feat.type = 'Feature';
-        feat.properties = {
-          'description':parsed[i].description,
-          'detail':parsed[i].detail
-        };
-        features.push(feat);
+  got(url)
+    .then(response => {
+      let parsed = response.body.replace(/"coordinate"/g,'"geometry"');
+      parsed = JSON.parse(parsed);
+      let features = [];
+      for (let i in parsed) {
+        if (parsed.hasOwnProperty(i)) {
+          let feat = {};
+          feat.geometry = parsed[i].geometry;
+          feat.type = 'Feature';
+          feat.properties = {
+            'description':parsed[i].description,
+            'detail':parsed[i].detail
+          };
+          features.push(feat);
+        }
       }
-    }
-    output.features = features;
-    console.log(JSON.stringify(output));
-  })
-  .catch(error => {
-    console.log(error.response.body);
-  });
+      output.features = features;
+      console.log(JSON.stringify(output));
+    })
+    .catch(error => {
+      console.log(error.response.body);
+    });
+}
 
+get();
