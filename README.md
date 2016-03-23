@@ -11,6 +11,10 @@ $ gipod -h
 
 This will output the real GeoJSON in STDOUT and let you do whatever you want with it.
 
+# See also
+
+docs of this API: http://gipod.api.agiv.be/#!index.md
+
 # License
 
 Apache
