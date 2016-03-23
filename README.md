@@ -4,7 +4,7 @@
 # Usage
 
 ```
-$ npm install -g gipod-to-geojson
+$ npm install -g git+https://github.com/haroenv/gipod-to-geojson
 $ gipod --type workassignment --query city=gent
 $ gipod -h
 ```
