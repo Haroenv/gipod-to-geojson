@@ -6,6 +6,9 @@
   "dependencies": {
     "got": "^6.2.0"
   },
+  "bin":{
+    "gipod": "./gipod.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Haroenv/gipod-to-geojson.git"
