@@ -1,9 +1,35 @@
 'use strict';
-var url = 'http://gipod.api.agiv.be/ws/v1/workassignment'; //todo: query strings
-
 const got = require('got');
 
-let parsed;
+const args = process.argv.slice(2);
+const url = 'http://gipod.api.agiv.be/ws/v1/';
+
+const options = {
+  '--type':'type',
+  '--query':'quiets',
+  '-h':
+`
+usage: node traffic.js [flag] [value]
+flags:
+  --type
+    workassignment
+    referencedata
+    manifestation
+    see <http://gipod.api.agiv.be/#!docs/technical.md> for reference
+  --query
+    a valid querystring
+    see <http://gipod.api.agiv.be/#!docs/technical.md> for reference
+
+example: node traffic.js --type workassignment --query city=gent&enddate=2016-03-20
+`
+}
+
+for (let i in args) {
+  if (args[i] in options) {
+    let arg = args[i]
+    console.log(options[arg]);
+  }
+}
 
 let output = {
   'type': 'FeatureCollection',
@@ -12,7 +38,7 @@ let output = {
 
 got(url)
   .then(response => {
-    parsed = response.body.replace(/"coordinate"/g,'"geometry"');
+    let parsed = response.body.replace(/"coordinate"/g,'"geometry"');
     parsed = JSON.parse(parsed);
     let features = [];
     for (let i in parsed) {
@@ -33,3 +59,4 @@ got(url)
   .catch(error => {
     console.log(error.response.body);
   });
+
