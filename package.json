@@ -1,8 +1,8 @@
 {
   "name": "gipod-to-geojson",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "GIPOD is a service of the Flemish government giving open data of traffic works. This fulfils its claim of being GeoJSON.",
-  "main": "traffic.js",
+  "main": "gipod.js",
   "dependencies": {
     "got": "^6.2.0"
   },

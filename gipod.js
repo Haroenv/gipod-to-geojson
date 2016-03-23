@@ -2,11 +2,17 @@
 const got = require('got');
 
 const args = process.argv.slice(2);
-const url = 'http://gipod.api.agiv.be/ws/v1/';
+const address = 'http://gipod.api.agiv.be/ws/v1/';
+
+let type = '', query = '';
 
 const options = {
-  '--type':'type',
-  '--query':'quiets',
+  '--type': (typeArg)=>{
+    type = typeArg;
+  },
+  '--query': (queryArg)=>{
+    query = '?'+queryArg;
+  },
   '-h':
 `
 usage: node traffic.js [flag] [value]
@@ -26,10 +32,16 @@ example: node traffic.js --type workassignment --query city=gent&enddate=2016-03
 
 for (let i in args) {
   if (args[i] in options) {
-    let arg = args[i]
-    console.log(options[arg]);
+    // if (args[parseInt(i)+1] === 'undefined') {
+    //   options['-h'];
+    // } else {
+      let arg = args[i];
+      options[arg](args[parseInt(i)+1]);
+    // }
   }
 }
+
+const url = address + type + query;
 
 let output = {
   'type': 'FeatureCollection',
