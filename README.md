@@ -4,8 +4,9 @@
 # Usage
 
 ```
-npm install
-node traffic.js
+$ npm install -g gipod-to-geojson
+$ gipod --type workassignment --query city=gent
+$ gipod -h
 ```
 
 This will output the real GeoJSON in STDOUT and let you do whatever you want with it.
