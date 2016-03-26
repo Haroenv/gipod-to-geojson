@@ -17,7 +17,7 @@ const options = {
   '-h': ()=>{
     console.log(
 `
-usage: node traffic.js [flag] [value]
+usage: gipod [flag] [value]
 flags:
   --type
     workassignment
@@ -28,7 +28,7 @@ flags:
     a valid querystring
     see <http://gipod.api.agiv.be/#!docs/technical.md> for reference
 
-example: node traffic.js --type workassignment --query city=gent&enddate=2016-03-20
+example: gipod --type workassignment --query city=gent&enddate=2016-03-20
 `
       );
   }
