@@ -1,19 +1,23 @@
 {
   "name": "gipod-to-geojson",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "GIPOD is a service of the Flemish government giving open data of traffic works. This fulfils its claim of being GeoJSON.",
   "main": "gipod.js",
   "dependencies": {
     "got": "^6.2.0"
   },
-  "bin":{
+  "bin": {
     "gipod": "./gipod.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Haroenv/gipod-to-geojson.git"
   },
-  "keywords": ["flanders","open data","gipod"],
+  "keywords": [
+    "flanders",
+    "open data",
+    "gipod"
+  ],
   "author": "Haroen Viaene <hello@haroen.me>",
   "license": "Apache",
   "bugs": {
