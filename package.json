@@ -6,6 +6,18 @@
   "dependencies": {
     "got": "^6.2.0"
   },
+  "devDependencies": {
+    "eslint": "^2.9.0"
+  },
+  "scripts": {
+    "test": "npm run lint",
+    "lint": "eslint gipod.js"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true
+    }
+  },
   "bin": {
     "gipod": "./gipod.js"
   },
