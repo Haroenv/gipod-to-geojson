@@ -1,7 +1,7 @@
 # gipod-to-geojson
 >GIPOD is a service of the Flemish government giving open data of traffic works. This fulfils its claim of being GeoJSON.
 
-[![Build Status](https://travis-ci.org/Haroenv/gipod-to-geojson.svg?branch=master)](https://travis-ci.org/Haroenv/gipod-to-geojson)
+[![Build Status](https://travis-ci.org/Haroenv/gipod-to-geojson.svg?branch=master)](https://travis-ci.org/Haroenv/gipod-to-geojson)[![npm version](https://badge.fury.io/js/gipod-to-geojson.svg)](https://www.npmjs.com/package/gipod-to-geojson)
 
 # Usage
 
