@@ -83,6 +83,7 @@ let get = () => {
     })
     .catch(error => {
       console.log(error.response.body);
+      exit(1);
     });
 }
 
