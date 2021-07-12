@@ -15,7 +15,7 @@ This will output the real GeoJSON in STDOUT and let you do whatever you want wit
 
 # See also
 
-docs of this API: http://gipod.api.agiv.be/#!index.md
+docs of this API: http://api.gipod.vlaanderen.be/#!index.md
 
 # License
 
