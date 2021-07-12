@@ -82,8 +82,8 @@ let get = () => {
       console.log(JSON.stringify(output));
     })
     .catch(error => {
-      console.log(error.response.body);
-      exit(1);
+      console.error('error:', error);
+      process.exit(1);
     });
 }
 
