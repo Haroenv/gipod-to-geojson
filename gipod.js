@@ -3,7 +3,7 @@
 const got = require('got');
 
 const args = process.argv.slice(2);
-const address = 'http://gipod.api.agiv.be/ws/v1/';
+const address = 'http://api.gipod.vlaanderen.be/ws/v1/';
 
 let type = '', query = '';
 
