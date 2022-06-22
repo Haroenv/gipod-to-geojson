@@ -4,7 +4,7 @@
   "description": "GIPOD is a service of the Flemish government giving open data of traffic works. This fullfills its claim of being GeoJSON.",
   "main": "gipod.js",
   "dependencies": {
-    "got": "^6.2.0"
+    "got": "^11.8.5"
   },
   "devDependencies": {
     "eslint": "^2.9.0"
